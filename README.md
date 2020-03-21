@@ -5,6 +5,20 @@
 
 FluentDarkModeKit was designed and developed before Apple‘s official dark mode release. It provides a mechanism to support dark mode for apps on iOS 11+ (including iOS 13).
 
+
+
+## New Support!!!
+
+Now is supporting iOS9+ , but strongly Suggest not under iOS10+. There is a API in `DMDynamicImage.m` supported at lease iOS10+. If you don't Use `[UIImage imageWithHorizontallyFlippedOrientation]` Method, you can Use this Branch.
+
+So in your podfile, you can write like this:
+
+```
+pod "FluentDarkModeKit" ,:git=>'https://github.com/swlfigo/FluentDarkModeKit.git',:branch=>'iOS9-Support'
+```
+
+
+
 ## Features
 
 - [x] Dark Mode support for iOS 11+

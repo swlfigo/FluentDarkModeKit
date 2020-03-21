@@ -60,10 +60,18 @@ extension DMTraitEnvironment {
 
       dmTraitCollectionDidChange(nil)
 
-      UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.25, delay: 0, options: [], animations: {
-        snapshotViews.forEach { $0.alpha = 0 }
-      }) { _ in
-        snapshotViews.forEach { $0.removeFromSuperview() }
+      if #available(iOS 10.0 , *) {
+        UIViewPropertyAnimator.runningPropertyAnimator(withDuration: 0.25, delay: 0, options: [], animations: {
+          snapshotViews.forEach { $0.alpha = 0 }
+        }) { _ in
+          snapshotViews.forEach { $0.removeFromSuperview() }
+        }
+      }else{
+        UIView.animate(withDuration: 0.25, animations: {
+          snapshotViews.forEach { $0.alpha = 0 }
+        }) { _ in
+          snapshotViews.forEach { $0.removeFromSuperview() }
+        }
       }
     }
     else {
